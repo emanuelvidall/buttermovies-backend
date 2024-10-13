@@ -6,10 +6,10 @@ import { LoginRequestDto } from './dto/login-request.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post()
+  @Post('login')
   @HttpCode(200)
   async login(@Body() loginRequestDto: LoginRequestDto) {
-    const response = await this.authService.login(loginRequestDto);
+    const response = await this.authService.signIn(loginRequestDto);
     return response;
   }
 }
